@@ -1,0 +1,95 @@
+{
+  "name": "LearningProgress",
+  "type": "object",
+  "properties": {
+    "xp": {
+      "type": "number",
+      "description": "Total experience points earned",
+      "default": 0
+    },
+    "streak": {
+      "type": "number",
+      "description": "Current daily learning streak",
+      "default": 0
+    },
+    "last_activity_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of last learning activity (YYYY-MM-DD)"
+    },
+    "daily_xp": {
+      "type": "number",
+      "description": "XP earned today",
+      "default": 0
+    },
+    "daily_xp_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date for which daily_xp applies"
+    },
+    "daily_challenge_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of last completed daily challenge"
+    },
+    "completed_lessons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "IDs of completed lessons"
+    },
+    "quiz_history": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "description": "Quiz attempt records: { lesson_id, course_id, correct, total, date }"
+    },
+    "quiz_accuracy": {
+      "type": "number",
+      "description": "Overall quiz accuracy percentage 0-100"
+    },
+    "weak_topics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Course IDs where the user performs weakest"
+    },
+    "achievements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "IDs of unlocked achievements"
+    },
+    "patterns_identified": {
+      "type": "number",
+      "description": "Count of chart patterns identified in exercises",
+      "default": 0
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional notes or description for this learning progress record",
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "xp"
+  ],
+  "rls": {
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

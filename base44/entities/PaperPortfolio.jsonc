@@ -1,0 +1,49 @@
+{
+  "name": "PaperPortfolio",
+  "type": "object",
+  "properties": {
+    "balance": {
+      "type": "number",
+      "description": "Current virtual cash balance"
+    },
+    "initial_balance": {
+      "type": "number",
+      "description": "Starting virtual capital"
+    },
+    "total_pnl": {
+      "type": "number",
+      "description": "Total realized P&L"
+    },
+    "total_trades": {
+      "type": "number",
+      "description": "Total trades executed"
+    },
+    "winning_trades": {
+      "type": "number",
+      "description": "Number of winning trades"
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional notes or description for this paper portfolio",
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "balance",
+    "initial_balance"
+  ],
+  "rls": {
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

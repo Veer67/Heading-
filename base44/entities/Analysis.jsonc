@@ -1,0 +1,90 @@
+{
+  "name": "Analysis",
+  "type": "object",
+  "properties": {
+    "chart_url": {
+      "type": "string",
+      "description": "URL of the uploaded chart image"
+    },
+    "model": {
+      "type": "string",
+      "enum": [
+        "claude_sonnet_5",
+        "claude_opus_48",
+        "gpt56_luna",
+        "gemini31_pro"
+      ],
+      "description": "AI model used for analysis"
+    },
+    "mode": {
+      "type": "string",
+      "enum": [
+        "quick",
+        "options",
+        "full"
+      ],
+      "description": "Analysis mode"
+    },
+    "result": {
+      "type": "string",
+      "description": "Full analysis result text"
+    },
+    "signal": {
+      "type": "string",
+      "enum": [
+        "buy",
+        "sell",
+        "hold",
+        "call",
+        "put"
+      ],
+      "description": "Trading signal"
+    },
+    "confidence": {
+      "type": "number",
+      "description": "Confidence percentage 0-100"
+    },
+    "entry_price": {
+      "type": "string",
+      "description": "Suggested entry price"
+    },
+    "stop_loss": {
+      "type": "string",
+      "description": "Suggested stop loss"
+    },
+    "take_profit": {
+      "type": "string",
+      "description": "Suggested take profit"
+    },
+    "patterns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Detected chart patterns"
+    },
+    "summary": {
+      "type": "string",
+      "description": "Short summary of the analysis"
+    }
+  },
+  "required": [
+    "chart_url",
+    "model",
+    "mode"
+  ],
+  "rls": {
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "name": "Strategy",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Strategy name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Strategy description"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "scalping",
+        "day_trading",
+        "swing",
+        "position",
+        "options"
+      ],
+      "description": "Strategy type"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "paused",
+        "archived"
+      ],
+      "default": "active",
+      "description": "Strategy status"
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "default": "medium",
+      "description": "Risk level"
+    },
+    "win_rate": {
+      "type": "number",
+      "description": "Win rate percentage"
+    },
+    "total_trades": {
+      "type": "number",
+      "description": "Total trades executed"
+    },
+    "rules": {
+      "type": "string",
+      "description": "Strategy rules and conditions"
+    }
+  },
+  "required": [
+    "name",
+    "type"
+  ],
+  "rls": {
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

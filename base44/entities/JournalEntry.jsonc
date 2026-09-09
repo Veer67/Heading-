@@ -1,0 +1,105 @@
+{
+  "name": "JournalEntry",
+  "type": "object",
+  "properties": {
+    "symbol": {
+      "type": "string",
+      "description": "Trading symbol e.g. AAPL, BTC"
+    },
+    "direction": {
+      "type": "string",
+      "enum": [
+        "long",
+        "short"
+      ],
+      "description": "Trade direction"
+    },
+    "trade_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the trade was taken"
+    },
+    "entry_price": {
+      "type": "number",
+      "description": "Entry price"
+    },
+    "exit_price": {
+      "type": "number",
+      "description": "Exit price"
+    },
+    "stop_loss": {
+      "type": "number",
+      "description": "Stop loss price"
+    },
+    "take_profit": {
+      "type": "number",
+      "description": "Take profit price"
+    },
+    "position_size": {
+      "type": "number",
+      "description": "Position size / quantity"
+    },
+    "risk_percent": {
+      "type": "number",
+      "description": "Risk per trade as percentage of capital"
+    },
+    "result": {
+      "type": "string",
+      "enum": [
+        "open",
+        "win",
+        "loss",
+        "breakeven"
+      ],
+      "default": "open",
+      "description": "Trade outcome"
+    },
+    "pnl": {
+      "type": "number",
+      "description": "Realized profit or loss"
+    },
+    "setup": {
+      "type": "string",
+      "description": "Setup type e.g. breakout, pullback, engulfing"
+    },
+    "strategy": {
+      "type": "string",
+      "description": "Strategy name"
+    },
+    "screenshot_url": {
+      "type": "string",
+      "description": "URL of an uploaded chart screenshot"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Trade notes"
+    },
+    "emotions": {
+      "type": "string",
+      "description": "Emotional state during the trade"
+    },
+    "mistakes": {
+      "type": "string",
+      "description": "Mistakes made in this trade"
+    }
+  },
+  "required": [
+    "symbol",
+    "direction",
+    "trade_date"
+  ],
+  "rls": {
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

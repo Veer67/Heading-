@@ -1,0 +1,115 @@
+{
+  "name": "Backtest",
+  "type": "object",
+  "properties": {
+    "strategy_id": {
+      "type": "string",
+      "description": "Reference to the strategy being backtested"
+    },
+    "strategy_name": {
+      "type": "string",
+      "description": "Name of the strategy"
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional description of the backtest run (up to 1000 characters)",
+      "maxLength": 1000
+    },
+    "symbol": {
+      "type": "string",
+      "description": "Trading symbol used for backtest"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Backtest start date"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Backtest end date"
+    },
+    "initial_capital": {
+      "type": "number",
+      "description": "Starting capital for backtest"
+    },
+    "final_capital": {
+      "type": "number",
+      "description": "Ending capital after backtest"
+    },
+    "total_return": {
+      "type": "number",
+      "description": "Total return percentage"
+    },
+    "max_drawdown": {
+      "type": "number",
+      "description": "Maximum drawdown percentage"
+    },
+    "sharpe_ratio": {
+      "type": "number",
+      "description": "Sharpe ratio"
+    },
+    "win_rate": {
+      "type": "number",
+      "description": "Win rate percentage"
+    },
+    "total_trades": {
+      "type": "number",
+      "description": "Total number of trades executed"
+    },
+    "winning_trades": {
+      "type": "number",
+      "description": "Number of winning trades"
+    },
+    "losing_trades": {
+      "type": "number",
+      "description": "Number of losing trades"
+    },
+    "avg_win": {
+      "type": "number",
+      "description": "Average winning trade profit"
+    },
+    "avg_loss": {
+      "type": "number",
+      "description": "Average losing trade loss"
+    },
+    "profit_factor": {
+      "type": "number",
+      "description": "Profit factor ratio"
+    },
+    "equity_curve": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "description": "Equity curve data points"
+    },
+    "trades": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "description": "Individual trade records"
+    }
+  },
+  "required": [
+    "strategy_id",
+    "start_date",
+    "end_date",
+    "initial_capital"
+  ],
+  "rls": {
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}
